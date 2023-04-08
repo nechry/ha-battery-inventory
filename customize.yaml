@@ -1,0 +1,13 @@
+sensor.first_floor_landing_motion_sensor_battery_level:
+  battery_type: CR123A
+sensor.first_floor_landing_smoke_sensor_battery_level:
+  battery_type: CR123A
+sensor.first_floor_landing_lcd_battery:
+  battery_type: LR03/AAA
+  quantity: 2
+sensor.aqara_opple_switch_2x2_battery:
+  battery_type: CR2032
+sensor.anemometer_battery:
+  battery_type: LR06/AA
+sensor.attic_staircase_motion_sensor_battery:
+  battery_type: CR2450
