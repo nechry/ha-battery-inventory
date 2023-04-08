@@ -11,3 +11,6 @@ sensor.anemometer_battery:
   battery_type: LR06/AA
 sensor.attic_staircase_motion_sensor_battery:
   battery_type: CR2450
+sensor.garden_south_irrigation_controller_battery:
+  battery_type: LR06/AA
+  quantity: 4
