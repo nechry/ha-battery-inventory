@@ -41,7 +41,7 @@ sensor.garden_south_irrigation_controller_battery:
 You need to adapt the `entity_id` to your needs. Is the entity_id of your battery sensor.
 The mandatory attributes is `battery_type`.
 
-For the `battery_type` attribute you can use the any text representation of the battery type.
+For the `battery_type` attribute you can use any text representation of the battery type.
 
 Example:
 
@@ -50,11 +50,11 @@ Example:
 - LR06/AA
 - CR2450
 
-The `quantity` attribute is optional, the template will assume 1 if not specified. The value must be a number.
+The `quantity` attribute is optional, the template will assume a value of `1` if is not specified. The `quantity` must be a valid number.
 
 ## UI Card
 
-Just copy the [yaml](MarkdownCard.yam) code and paste it in `Manual card` inside of your Dashboard.
+Just copy the [yaml](MarkdownCard.yam) code and paste it into a empty `Manual card` inside of your Dashboard.
 
 <!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./config/MarkdownCard.yaml) -->
 <!-- The below code snippet is automatically added from ./config/MarkdownCard.yaml -->
@@ -98,8 +98,13 @@ title: Battery Inventory Management
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
+You will also need to create a Numeric helper to set the `low_battery_alert_threshold` value as show:
+
+![Numeric Helper][helper]
+
 ## License
 
 [MIT](LICENSE)
 
 [report]: images/report-card.png
+[helper]: images/numeric-helper.png
