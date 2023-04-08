@@ -1,8 +1,14 @@
 # ha-battery-inventory
 Home-Assistant Battery Inventory Management
 
+I wanted to have a report of all my battery devices, by battery type with there quantity.
+
 ![Battery Inventory Management][report]
 
+With this report, I can easily see if I need to buy more batteries.
+Unfortunately, at the moment, in Home-Assistant there is no way to know the battery type and the quantity used by a device.
+
+But Home-Assistant has a way to customize entities, so I can add the battery type and the quantity used by a device.
 
 ## Installation
 
