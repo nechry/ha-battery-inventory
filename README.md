@@ -1,14 +1,14 @@
 # ha-battery-inventory
 Home-Assistant Battery Inventory Management
 
-I wanted to have a report of all my battery devices, by battery type with there quantity.
+I wanted to have a report allowing me to have an overview of the types of batteries used with the quantity used by equipment, in order to help me in planning my battery orders.
 
 ![Battery Inventory Management][report]
 
-With this report, I can easily see if I need to buy more batteries.
-Unfortunately, at the moment, in Home-Assistant there is no way to know the battery type and the quantity used by a device.
+With this report, I can easily plan my battery purchases.
+Unfortunately, at the moment, in Home-Assistant, there is no way to know the type of battery and the quantity used by a device.
 
-But Home-Assistant has a way to customize entities, so I can add the battery type and the quantity used by a device.
+But Home-Assistant allows to customize the entities, so I added the type of battery and the quantity used per device and for all my devices.
 
 ## Installation
 
@@ -44,10 +44,10 @@ sensor.garden_south_irrigation_controller_battery:
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
-You need to adapt the `entity_id` to your needs. Is the entity_id of your battery sensor.
-The mandatory attributes is `battery_type`.
+You need to adapt the `entity_id` to your needs. the entity_id represents your stack level value for a sensor.
+The `battery_type` attributes is mandatory.
 
-For the `battery_type` attribute you can use any text representation of the battery type.
+For the `battery_type` attribute you can use any text representation of a battery type.
 
 Example:
 
