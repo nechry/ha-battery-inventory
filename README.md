@@ -16,7 +16,7 @@ homeassistant:
 ```
 
 Inside the `customize.yaml` file use the following code as base template:
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=.customize.yaml) -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./config/customize.yaml) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 You need to adapt the `entity_id` to your needs. Is the entity_id of your battery sensor.
@@ -37,7 +37,7 @@ The `quantity` attribute is optional, the template will assume 1 if not specifie
 
 Just copy the [yaml](MarkdownCard.yam) code and paste it in `Manual card` inside of your Dashboard.
 
-<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=.MarkdownCard.yaml) -->
+<!-- MARKDOWN-AUTO-DOCS:START (CODE:src=./config/MarkdownCard.yaml) -->
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
 ## License
