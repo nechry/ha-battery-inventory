@@ -28,7 +28,7 @@ content: >-
   <tbody>
   {%- for state in ns.report -%}
   <tr>
-  <td VALIGN=TOP>{{ state.battery_type }}</td><td VALIGN=TOP><b>{{ state.quantity }}</b></td> <td VALIGN=TOP> {%- for info in state.info -%} {{ info.quantity }}x {{ info.name }} <font color={{ (info.level < states.input_number.low_battery_alert_threshold.state | int) | iif("OrangeRed", "White") }}><b>{{ info.level }}%</b></font><br> {%- endfor -%}<br></td>
+  <td VALIGN=TOP>{{ state.battery_type }}</td><td VALIGN=TOP><b>{{ state.quantity }}</b></td> <td VALIGN=TOP> {%- for info in state.info -%} {{ info.quantity }}x {{ info.name }} <font color={{ (info.level < states.input_number.low_battery_report_threshold.state | int) | iif("OrangeRed", "White") }}><b>{{ info.level }}%</b></font><br> {%- endfor -%}<br></td>
   </tr>
   {%- endfor -%}
   </tbody>

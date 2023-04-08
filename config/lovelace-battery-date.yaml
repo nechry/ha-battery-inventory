@@ -1,0 +1,41 @@
+type: custom:battery-state-card
+title: Battery levels date report
+sort_by_level: asc
+tap_action: more-info
+collapse: 10
+filter:
+  include:
+    - name: entity_id
+      value: '*_battery_level'
+    - name: attributes.device_class
+      value: battery
+  exclude:
+    - name: state
+      value: 'On'
+      operator: '='
+    - name: attributes.attribution
+      value: Data provided by Apple iCloud
+    - name: entity_id
+      value: sensor.*apple_watch*
+    - name: entity_id
+      value: sensor.*iphone*
+    - name: state
+      value: 'Off'
+      operator: '='
+secondary_info: last_updated
+bulk_rename:
+  - from: Battery Level
+    to: ''
+  - from: ': Battery level'
+    to: ''
+  - from: sensor_battery
+    to: ''
+  - from: Battery level
+    to: ''
+  - from: battery level
+    to: ''
+  - from: Battery
+    to: ''
+  - from: battery
+    to: ''
+round: 0

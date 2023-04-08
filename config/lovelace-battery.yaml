@@ -1,0 +1,49 @@
+type: custom:battery-state-card
+title: Battery levels
+sort_by_level: asc
+tap_action: more-info
+filter:
+  include:
+    - name: attributes.device_class
+      value: battery
+  exclude:
+    - name: state
+      value: Unknown
+      operator: '='
+    - name: state
+      value: 'On'
+      operator: '='
+    - name: state
+      value: 'Off'
+      operator: '='
+    - name: state
+      value: 60
+      operator: '>'
+    - name: state
+      value: Unavailable
+      operator: '='
+    - name: attributes.attribution
+      value: 'Data provided by Apple iCloud'
+    - name: entity_id
+      value: sensor.*apple_watch*  
+    - name: entity_id
+      value: sensor.*iphone*    
+    - name: entity_id
+      value: sensor.oregon_cm180i*
+secondary_info: battery_type
+round: 0
+bulk_rename:
+  - from: Battery Level
+    to: ''
+  - from: ': Battery level'
+    to: ''
+  - from: sensor_battery
+    to: ''
+  - from: Battery level
+    to: ''
+  - from: battery level
+    to: ''
+  - from: Battery
+    to: ''
+  - from: battery
+    to: ''
