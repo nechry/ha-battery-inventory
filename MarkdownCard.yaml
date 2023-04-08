@@ -1,0 +1,36 @@
+type: markdown
+content: >-
+  {%- set ns = namespace(sensors=[], battery_type = '', quantity = 0, report=[], info=[]) -%}
+  {%- for state in states.sensor 
+      | selectattr('attributes.device_class', 'defined')
+      | selectattr('attributes.device_class', 'eq', 'battery')
+      | selectattr('attributes.battery_type', 'defined') -%}
+    {%- if not state_attr(state.entity_id, 'battery_type') in ['SolarPanel','DC', 'Battery', 'APCRBC110'] -%}
+      {% set ns.sensors = ns.sensors + [dict(name= state.name | lower | replace(':', '') | replace(' battery level', '') | replace(' battery', '') | capitalize() , battery_type=state_attr(state.entity_id, 'battery_type'), quantity=state_attr(state.entity_id, 'quantity') | int(1), level=state.state |int(0) )] %}
+    {%- endif -%}
+  {%- endfor -%} {%- set battery_list = ns.sensors | sort(attribute='battery_type') %} {%- for battery in battery_list -%}
+    {% if ns.battery_type == battery.battery_type %}
+      {% set ns.quantity=ns.quantity + battery.quantity %}
+      {% set ns.info=ns.info+[dict(name=battery.name,quantity=battery.quantity,level=battery.level)] %}
+    {% else %}
+      {% if ns.battery_type != '' %}      
+        {% set ns.report = ns.report+[dict(battery_type=ns.battery_type, quantity=ns.quantity, info=ns.info | sort(attribute='level')) ] %}
+      {% endif %}
+      {% set ns.battery_type= battery.battery_type %}
+      {% set ns.quantity=battery.quantity %}
+      {% set ns.info=[dict(name=battery.name,quantity=battery.quantity,level=battery.level)] %}
+    {% endif %}
+  {%- endfor -%}
+  <table>
+  <thead>
+  <tr><th>Type</th><th>Quantity</th><th>Details</th></tr>
+  </thead>
+  <tbody>
+  {%- for state in ns.report -%}
+  <tr>
+  <td VALIGN=TOP>{{ state.battery_type }}</td><td VALIGN=TOP><b>{{ state.quantity }}</b></td> <td VALIGN=TOP> {%- for info in state.info -%} {{ info.quantity }}x {{ info.name }} <font color={{ (info.level < states.input_number.low_battery_alert_threshold.state | int) | iif("OrangeRed", "White") }}><b>{{ info.level }}%</b></font><br> {%- endfor -%}<br></td>
+  </tr>
+  {%- endfor -%}
+  </tbody>
+  </table>
+title: Battery Inventory Management
