@@ -104,7 +104,7 @@ title: Battery Inventory Management
 ```
 <!-- MARKDOWN-AUTO-DOCS:END -->
 
-You will also need to create a Numeric helper to set the `low_battery_alert_threshold` value as show:
+You will also need to create a Numeric helper to set the `low_battery_report_threshold` value as show:
 
 ![Numeric low_battery_report_threshold Helper][low_battery-helper]
 
